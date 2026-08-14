@@ -1,0 +1,30 @@
+<div class="calculator">
+  <h2>جمع دو عدد</h2>
+
+  <div class="inputs">
+    <input
+      type="number"
+      [(ngModel)]="firstNumber"
+      placeholder="عدد اول"
+    />
+
+    <span>+</span>
+
+    <input
+      type="number"
+      [(ngModel)]="secondNumber"
+      placeholder="عدد دوم"
+    />
+  </div>
+
+  <button (click)="calculate()">
+    محاسبه
+  </button>
+
+  @if (result !== null) {
+    <div class="result">
+      <p> نتیجه: <strong>{{ result }}</strong></p>
+      <p>{{ message }}</p>
+    </div>
+  }
+</div>
