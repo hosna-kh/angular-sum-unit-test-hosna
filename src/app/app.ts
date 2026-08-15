@@ -1,33 +1,40 @@
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject, signal } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+import {
+  TranslatePipe,
+  TranslateService
+} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   imports: [
-    FormsModule
+    RouterOutlet,
+    RouterLink,
+    TranslatePipe
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('HOSNA TEST');
 
-  firstNumber: number | null = null;
-  secondNumber: number | null = null;
-  result: number | null = null;
-  message = '';
+  protected readonly title = signal('expert-angular-lab');
 
-  calculate(): void {
-    if (this.firstNumber === null || this.secondNumber === null) {
-      return;
-    }
+  private readonly translate = inject(TranslateService);
 
-    this.result = this.firstNumber + this.secondNumber;
+  constructor() {
+    const language = localStorage.getItem('language') ?? 'fa';
 
-    if (this.result < 10) {
-      this.message = 'جمع دو عدد کوچک‌تر از ۱۰ است';
-    } else {
-      this.message = 'جمع دو عدد بزرگتر از ۱۰ است';
-    }
+    this.changeLanguage(language as 'fa' | 'en');
+  }
+
+  changeLanguage(language: 'fa' | 'en'): void {
+    this.translate.use(language);
+
+    localStorage.setItem('language', language);
+
+    document.documentElement.lang = language;
+    document.documentElement.dir =
+      language === 'fa' ? 'rtl' : 'ltr';
   }
 }

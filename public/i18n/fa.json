@@ -1,0 +1,19 @@
+{
+  "MENU": {
+    "HOME": "خانه",
+    "SUM": "جمع دو عدد"
+  },
+
+  "SUM": {
+    "TITLE": "جمع دو عدد",
+    "FIRST_NUMBER": "عدد اول",
+    "SECOND_NUMBER": "عدد دوم",
+    "CALCULATE": "محاسبه",
+    "RESULT": "نتیجه"
+  },
+
+  "LANGUAGE": {
+    "FA": "فارسی",
+    "EN": "انگلیسی"
+  }
+}

@@ -1,62 +1,47 @@
-.calculator {
-  width: 350px;
-  margin: 100px auto;
-  padding: 30px;
+.menu {
+  display: flex;
+  align-items: center;
 
-  text-align: center;
+  // خیلی مهم: چیدمان خود navbar همیشه از چپ شروع شود
+  direction: ltr;
 
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  padding: 12px 20px;
 
-  h2 {
-    margin-bottom: 25px;
-  }
-
-  .inputs {
+  .language-switch {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 
-    input {
-      width: 130px;
-      padding: 10px;
+    // اجازه نده دکمه‌ها جابه‌جا یا جمع شوند
+    flex-shrink: 0;
 
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      outline: none;
-    }
-
-    span {
-      font-size: 20px;
-      font-weight: bold;
+    button {
+      padding: 6px 12px;
+      cursor: pointer;
     }
   }
 
-  button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-
-    border: none;
-    border-radius: 6px;
-
-    background: #333;
-    color: white;
-
-    cursor: pointer;
-
-    &:hover {
-      background: #555;
-    }
+  .menu-link {
+    white-space: nowrap;
   }
+}
 
-  .result {
-    margin-top: 20px;
-    padding: 12px;
 
-    background: #f5f5f5;
-    border-radius: 6px;
+// انگلیسی
+:host-context(html[dir='ltr']) {
+  .menu-link {
+    margin-left: 30px;
+    margin-right: 0;
+    direction: ltr;
+  }
+}
 
-    font-size: 18px;
+
+// فارسی
+:host-context(html[dir='rtl']) {
+  .menu-link {
+    margin-left: auto;
+    margin-right: 0;
+    direction: rtl;
   }
 }

@@ -1,0 +1,19 @@
+{
+  "MENU": {
+    "HOME": "Home",
+    "SUM": "Add Two Numbers"
+  },
+
+  "SUM": {
+    "TITLE": "Add Two Numbers",
+    "FIRST_NUMBER": "First Number",
+    "SECOND_NUMBER": "Second Number",
+    "CALCULATE": "Calculate",
+    "RESULT": "Result"
+  },
+
+  "LANGUAGE": {
+    "FA": "Persian",
+    "EN": "English"
+  }
+}

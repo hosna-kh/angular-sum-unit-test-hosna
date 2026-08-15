@@ -1,0 +1,34 @@
+<div class="calculator">
+
+  <h2>{{ 'SUM.TITLE' | translate }}</h2>
+
+  <div class="inputs">
+    <input
+      type="number"
+      [(ngModel)]="firstNumber"
+      [placeholder]="'SUM.FIRST_NUMBER' | translate">
+
+    <span>+</span>
+
+    <input
+      type="number"
+      [(ngModel)]="secondNumber"
+      [placeholder]="'SUM.SECOND_NUMBER' | translate">
+  </div>
+
+  <button (click)="calculate()">
+    {{ 'SUM.CALCULATE' | translate }}
+  </button>
+
+  @if (result !== null) {
+    <div class="result">
+      <p>
+        {{ 'SUM.RESULT' | translate }}:
+        <strong>{{ result }}</strong>
+      </p>
+
+      <p>{{ message }}</p>
+    </div>
+  }
+
+</div>
