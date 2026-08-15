@@ -1,62 +1,199 @@
+:host {
+  display: block;
+  padding: 16px;
+}
+
 .calculator {
-  width: 350px;
-  margin: 100px auto;
-  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin: 32px auto;
+  padding: 24px;
+
+  box-sizing: border-box;
+  border-radius: 16px;
+
+  // Mobile breakpoint color
+  background-color: pink;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  transition:
+    max-width 0.3s ease,
+    padding 0.3s ease,
+    background-color 0.3s ease;
+
+  h2 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+  }
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+
+    font-size: 16px;
+
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: #555;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+button {
+  width: 100%;
+  min-height: 46px;
+
+  margin-top: 20px;
+  padding: 10px 24px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background-color: #222;
+  color: white;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.result {
+  margin-top: 24px;
+  padding: 16px;
 
   text-align: center;
 
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 10px;
 
-  h2 {
-    margin-bottom: 25px;
+  p {
+    margin: 6px 0;
+  }
+
+  strong {
+    font-size: 20px;
+  }
+}
+
+
+// -------------------------------------
+// Tablet
+// 768px - 1023px
+// -------------------------------------
+
+@media (min-width: 768px) {
+  :host {
+    padding: 24px;
+  }
+
+  .calculator {
+    max-width: 600px;
+    padding: 32px;
+
+    // Tablet breakpoint color
+    background-color: lightgreen;
+
+    h2 {
+      font-size: 26px;
+    }
   }
 
   .inputs {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
 
     input {
-      width: 130px;
-      padding: 10px;
-
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      outline: none;
+      flex: 1;
     }
 
     span {
-      font-size: 20px;
-      font-weight: bold;
+      flex: 0 0 30px;
     }
   }
 
   button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
+    width: auto;
+    min-width: 140px;
 
-    border: none;
-    border-radius: 6px;
+    display: block;
+    margin: 24px auto 0;
+  }
+}
 
-    background: #333;
-    color: white;
 
-    cursor: pointer;
+// -------------------------------------
+// Laptop
+// 1024px - 1439px
+// -------------------------------------
 
-    &:hover {
-      background: #555;
-    }
+@media (min-width: 1024px) {
+  .calculator {
+    max-width: 650px;
+    margin-top: 48px;
+
+    // Laptop breakpoint color
+    background-color: lightblue;
   }
 
-  .result {
-    margin-top: 20px;
-    padding: 12px;
+  .inputs {
+    gap: 16px;
+  }
+}
 
-    background: #f5f5f5;
-    border-radius: 6px;
 
-    font-size: 18px;
+// -------------------------------------
+// Large Desktop
+// >= 1440px
+// -------------------------------------
+
+@media (min-width: 1440px) {
+  .calculator {
+    max-width: 750px;
+    padding: 40px;
+
+    // Large Desktop breakpoint color
+    background-color: plum;
   }
 }

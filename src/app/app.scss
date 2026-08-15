@@ -1,24 +1,16 @@
 .menu {
   display: flex;
   align-items: center;
-
-  // خیلی مهم: چیدمان خود navbar همیشه از چپ شروع شود
+  padding: 12px 16px;
   direction: ltr;
 
-  padding: 12px 20px;
+  // Mobile
+  background-color: pink;
 
   .language-switch {
     display: flex;
-    align-items: center;
     gap: 8px;
-
-    // اجازه نده دکمه‌ها جابه‌جا یا جمع شوند
     flex-shrink: 0;
-
-    button {
-      padding: 6px 12px;
-      cursor: pointer;
-    }
   }
 
   .menu-link {
@@ -27,21 +19,43 @@
 }
 
 
+// فارسی
+:host-context(html[dir='rtl']) {
+  .menu-link {
+    margin-left: auto;
+    direction: rtl;
+  }
+}
+
+
 // انگلیسی
 :host-context(html[dir='ltr']) {
   .menu-link {
     margin-left: 30px;
-    margin-right: 0;
     direction: ltr;
   }
 }
 
 
-// فارسی
-:host-context(html[dir='rtl']) {
-  .menu-link {
-    margin-left: auto;
-    margin-right: 0;
-    direction: rtl;
+// Tablet
+@media (min-width: 768px) {
+  .menu {
+    background-color: lightgreen;
+  }
+}
+
+
+// Laptop
+@media (min-width: 1024px) {
+  .menu {
+    background-color: lightblue;
+  }
+}
+
+
+// Large Desktop
+@media (min-width: 1440px) {
+  .menu {
+    background-color: plum;
   }
 }
